@@ -1,1 +1,68 @@
-<p>board works!</p>
+<div class="parent">
+  <div class="side_container example-list">
+    <div  cdkDropList id="coinContainer" [cdkDropListData]="coins" [cdkDropListConnectedTo]="['board_1']" class="image_container" (cdkDropListDropped)="drop($event)">      
+      <ng-container *ngFor="let coin of coins; let i= index">
+        <div cdkDrag class="coin">          
+          <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 508 508">
+            <circle cx="254" cy="254" r="254" style="fill:#ffd15c"/>
+            <circle cx="254" cy="254" r="193.2" style="fill:#f8b64c"/>
+            <path d="M222.3 332.1c-5.5-7.3-9.3-16-11.3-26l-49.3 5.3c3.8 24.8 12.5 44 26 57.6 13.6 13.6 31.3 21.7 53 24.3V418h27.4v-25.7c24.5-3.5 43.7-13.1 57.5-28.7s20.7-34.8 20.7-57.6c0-20.4-5.5-37.1-16.4-50.1s-31.5-23.6-61.7-31.8v-73.8c12.2 5.3 19.8 15.4 22.6 30.2l47.8-6.2c-3.3-18.9-10.8-33.9-22.6-45.2-11.8-11.3-27.7-18.1-47.8-20.5V90h-27.4v18.7c-21.6 2.1-39 10.2-52 24.3-13 14-19.5 31.4-19.5 52 0 20.4 5.8 37.7 17.3 52s29.6 24.9 54.3 32v79c-6.9-3.3-13.1-8.6-18.6-15.9zm45.9-55.1c11.3 3.3 19.5 8 24.4 14.1 5 6.1 7.5 13.4 7.5 21.8 0 9.4-3 17.6-8.9 24.6s-13.6 11.4-23 13.1V277zm-45.7-75.8c-4-5.7-6-11.9-6-18.6 0-7.3 2.2-14 6.6-20 4.4-6 10.3-10.3 17.7-12.8v65.3c-8.2-3.5-14.3-8.1-18.3-13.9z" style="fill:#ffd15c"/>
+          </svg>
+        </div>
+      </ng-container>            
+    </div>
+  </div>  
+  
+  <div cdkDropList id="board_1" [cdkDropListData]="emptyarray" [cdkDropListConnectedTo]="['coinContainer']" class="container_1" (cdkDropListDropped)="drop($event)">
+    <div class="row_container">
+      <div class="row_1">
+        <div *ngFor="let item of emptyarray" cdkDrag class="drop_box" id="drop_box_1">
+          <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 508 508">
+            <circle cx="254" cy="254" r="254" style="fill:#ffd15c"/>
+            <circle cx="254" cy="254" r="193.2" style="fill:#f8b64c"/>
+            <path d="M222.3 332.1c-5.5-7.3-9.3-16-11.3-26l-49.3 5.3c3.8 24.8 12.5 44 26 57.6 13.6 13.6 31.3 21.7 53 24.3V418h27.4v-25.7c24.5-3.5 43.7-13.1 57.5-28.7s20.7-34.8 20.7-57.6c0-20.4-5.5-37.1-16.4-50.1s-31.5-23.6-61.7-31.8v-73.8c12.2 5.3 19.8 15.4 22.6 30.2l47.8-6.2c-3.3-18.9-10.8-33.9-22.6-45.2-11.8-11.3-27.7-18.1-47.8-20.5V90h-27.4v18.7c-21.6 2.1-39 10.2-52 24.3-13 14-19.5 31.4-19.5 52 0 20.4 5.8 37.7 17.3 52s29.6 24.9 54.3 32v79c-6.9-3.3-13.1-8.6-18.6-15.9zm45.9-55.1c11.3 3.3 19.5 8 24.4 14.1 5 6.1 7.5 13.4 7.5 21.8 0 9.4-3 17.6-8.9 24.6s-13.6 11.4-23 13.1V277zm-45.7-75.8c-4-5.7-6-11.9-6-18.6 0-7.3 2.2-14 6.6-20 4.4-6 10.3-10.3 17.7-12.8v65.3c-8.2-3.5-14.3-8.1-18.3-13.9z" style="fill:#ffd15c"/>
+          </svg>
+        </div>
+        <div  class="drop_box" id="drop_box_2"></div>
+        <div  class="drop_box" id="drop_box_3"></div>
+        <div  class="drop_box" id="drop_box_4"></div>
+        <div  class="drop_box" id="drop_box_5"></div>
+      </div>
+      <div class="row_2">
+        <div  class="drop_box" id="drop_box_6"></div>
+        <div  class="drop_box" id="drop_box_7"></div>
+        <div  class="drop_box" id="drop_box_8"></div>
+        <div  class="drop_box" id="drop_box_9"></div>
+        <div  class="drop_box" id="drop_box_10"></div>
+      </div>
+    </div>
+    <div class="coins" *ngFor="let item of emptyarray" cdkDrag>
+      <div  class="drop_box" >
+        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 508 508">
+          <circle cx="254" cy="254" r="254" style="fill:#ffd15c"/>
+          <circle cx="254" cy="254" r="193.2" style="fill:#f8b64c"/>
+          <path d="M222.3 332.1c-5.5-7.3-9.3-16-11.3-26l-49.3 5.3c3.8 24.8 12.5 44 26 57.6 13.6 13.6 31.3 21.7 53 24.3V418h27.4v-25.7c24.5-3.5 43.7-13.1 57.5-28.7s20.7-34.8 20.7-57.6c0-20.4-5.5-37.1-16.4-50.1s-31.5-23.6-61.7-31.8v-73.8c12.2 5.3 19.8 15.4 22.6 30.2l47.8-6.2c-3.3-18.9-10.8-33.9-22.6-45.2-11.8-11.3-27.7-18.1-47.8-20.5V90h-27.4v18.7c-21.6 2.1-39 10.2-52 24.3-13 14-19.5 31.4-19.5 52 0 20.4 5.8 37.7 17.3 52s29.6 24.9 54.3 32v79c-6.9-3.3-13.1-8.6-18.6-15.9zm45.9-55.1c11.3 3.3 19.5 8 24.4 14.1 5 6.1 7.5 13.4 7.5 21.8 0 9.4-3 17.6-8.9 24.6s-13.6 11.4-23 13.1V277zm-45.7-75.8c-4-5.7-6-11.9-6-18.6 0-7.3 2.2-14 6.6-20 4.4-6 10.3-10.3 17.7-12.8v65.3c-8.2-3.5-14.3-8.1-18.3-13.9z" style="fill:#ffd15c"/>
+        </svg>
+      </div>
+      
+    </div>
+  </div>
+  <!-- <ng-container *ngFor="let x of [].constructor(4); let i= index">
+  <div cdkDropList id="board_{{i+1}}" #boards="cdkDropList" [cdkDropListData]="emptyarray" [cdkDropListConnectedTo]="[coinContainer]" class="container_{{i+1}}" (cdkDropListDropped)="drop($event)">
+    
+    <div class="row_container">
+      <ng-container *ngFor="let x of [].constructor(2); let i= index">
+        <div class="row_{{i+1}}">
+          <ng-container *ngFor="let item of emptyarray; let i= index">
+            <div  class="drop_box" id="drop_box_{{i+1}}">
+              
+            </div>
+          </ng-container>
+        </div>        
+      </ng-container>
+    </div>
+  </div> 
+</ng-container> -->
+</div>
+
+<button (click)="test()">test</button>
