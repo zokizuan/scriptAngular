@@ -66,7 +66,8 @@ export class BoardComponent implements OnInit,AfterViewInit {
   
   
   drop(event: CdkDragDrop<any>) {
-    if (event.container.data.length >= 10) { 
+    if (event.container.data.length >= 10 && event.container.id !== "coinContainer") { 
+      console.log(event)
       console.log("dont drop here")
       return
       // console.log(arrivalList.length)
