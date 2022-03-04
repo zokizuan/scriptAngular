@@ -1,7 +1,8 @@
 <div class="parent" cdkDropListGroup>
   
   <div class="side_container example-list">
-    <div  cdkDropList id="coinContainer" [cdkDropListData]="coins"  class="image_container" (cdkDropListDropped)="drop($event)">      
+    <div  cdkDropList id="coinContainer" [cdkDropListData]="coins"  class="image_container" (cdkDropListDropped)="drop($event)"> 
+      <div>{{coins.length}}</div>     
       <ng-container *ngFor="let coin of coins; let i= index">
         <!-- <div *ngIf="coin.includes('yellow')"> -->
           <div cdkDrag class="coin">          
@@ -41,27 +42,30 @@
     </div>
   </div> -->
   <ng-container *ngFor="let colorArr of TotalBoard; let i= index">
-  <div class="container_{{i+1}}">    
+    
+  <div cdkDropList [cdkDropListData]="colorArr" (cdkDropListDropped)="drop($event)" #test class="container_{{i+1}}">    
     <div class="row_container">
-      <ng-container *ngFor="let x of [].constructor(2); let i= index">
-        <div class="row_{{i+1}}">
-          <ng-container *ngFor="let x of [].constructor(5); let i= index">
-            <div  cdkDropList [cdkDropListData]="colorArr" (cdkDropListDropped)="drop($event)"  class="drop_box">
-              <div *ngFor="let item of colorArr" cdkDrag>
-                  <div >
-                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 508 508">
-                      <circle cx="254" cy="254" r="254" style="fill:#ffd15c"/>
-                      <circle cx="254" cy="254" r="193.2" style="fill:#f8b64c"/>
-                    </svg>
-                  </div>              
-              </div>          
-            </div>
+      <!-- <ng-container *ngFor="let x of [].constructor(2); let i= index"> -->
+        <div class="row_1">
+          <ng-container *ngFor="let x of [].constructor(10); let i= index">
+            <!-- <ng-container *ngIf="colorArr.length === 1"> -->
+              <div class="drop_box"></div>
+            <!-- </ng-container> -->
           </ng-container> 
-        </div>        
-      </ng-container>
+        </div> 
+        <div *ngIf="colorArr" class="row_dropper">
+          <ng-container  *ngFor="let item of colorArr">
+            <div class="svg-container" cdkDrag>
+              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 508 508">
+                <circle cx="254" cy="254" r="254" style="fill:#ffd15c"/>
+                <circle cx="254" cy="254" r="193.2" style="fill:#f8b64c"/>              
+              </svg>                  
+            </div>
+          </ng-container>
+        </div>     
+        <div style="position: absolute; bottom: 15px;">coins: {{colorArr.length}}</div>  
+      <!-- </ng-container> -->
     </div>
   </div> 
 </ng-container>
 </div>
-
-<button (click)="test()">test</button>
