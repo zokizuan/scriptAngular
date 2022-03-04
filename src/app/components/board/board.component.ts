@@ -25,6 +25,8 @@ export class BoardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  this.GreenArr.push(undefined)
+    
   }
   coinsConfig = {
     yellow: 10,
@@ -39,6 +41,18 @@ export class BoardComponent implements OnInit {
   BlueArr = [] as any[];
   RedArr = [] as any[];
   TotalBoard = [this.GreenArr, this.RedArr, this.BlueArr, this.YellowArr];
+  /* get isTodoAvailable(): boolean {
+    return this.todo && this.todo.length < 5;
+  } */
+  get isDoneAvailable(): boolean {
+    return this.GreenArr && this.GreenArr.length < 3;
+  }
+  /* todoPredicate = (): boolean => {
+    return this.isTodoAvailable;
+  } */
+  donePredicate = (): boolean => {
+    return this.isDoneAvailable;
+}
   test() {
     console.log(this.YellowArr, this.GreenArr, this.BlueArr, this.RedArr);
   }
