@@ -21,11 +21,10 @@ export class BoardComponent implements OnInit {
     }).flat()
   }
   constructor() {
-
+// this.GreenArr.push('d1_coin-1');
   }
 
   ngOnInit(): void {
-  this.GreenArr.push(undefined)
     
   }
   coinsConfig = {
@@ -45,18 +44,21 @@ export class BoardComponent implements OnInit {
     return this.todo && this.todo.length < 5;
   } */
   get isDoneAvailable(): boolean {
-    return this.GreenArr && this.GreenArr.length < 3;
+    return this.GreenArr && this.GreenArr.length < 40;
   }
   /* todoPredicate = (): boolean => {
     return this.isTodoAvailable;
   } */
   donePredicate = (): boolean => {
     return this.isDoneAvailable;
-}
+  }
+  // items=['1','2','3','4','5','6','7','8','9','10',]
+  items = [undefined];
+  positions!:any[];
   test() {
     console.log(this.YellowArr, this.GreenArr, this.BlueArr, this.RedArr);
   }
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<any>) {
     console.log(event);
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
