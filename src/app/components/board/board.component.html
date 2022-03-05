@@ -14,15 +14,15 @@
     </div>
   </div>
   <ng-container *ngFor="let colorArr of TotalBoard; let i= index">
-    <div #test class="container_{{i+1}}">
+    <div #test class="board_{{i+1}}">
       <div class="row_container">
-        <div class="row_1">
+        <div class="row">
           <ng-container *ngFor="let x of [].constructor(10); let i= index">
             <div class="drop_box"></div>
           </ng-container>
         </div>
         <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="colorArr"
-             (cdkDropListDropped)="drop($event)" class="row_dropper" >
+             (cdkDropListDropped)="drop($event)" class="dropzone" >
           <!-- <div [ngStyle]="colorArr.length === 0? {'height':'100%'}:{'height':'unset'}" > -->
             <ng-container *ngFor="let item of colorArr">
               <div class="svg-container" cdkDrag>
