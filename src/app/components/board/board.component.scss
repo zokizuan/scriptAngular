@@ -57,7 +57,7 @@
   background: transparent;
   border-radius: 4px;
   position: relative;
-  z-index: 1;
+  z-index: 99;
   
   transition: filter 200ms cubic-bezier(0, 0, 0.2, 1);
 }
@@ -173,7 +173,7 @@
   gap: 10px;
 }
 
-/* @media screen and (max-width: 992px){
+ @media screen and (max-width: 992px){
   
 .row_container {
 max-height: 100% !important;
@@ -184,5 +184,6 @@ justify-content: flex-start;
   row-gap: 2%;
   height: unset;
 }
+
 }
- */
+ 

@@ -22,7 +22,7 @@
           </ng-container>
         </div>
         <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="colorArr"
-             (cdkDropListDropped)="drop($event)" class="dropzone" >
+             (cdkDropListDropped)="drop($event)" class="dropzone" [ngStyle]="colorArr.length === 0? {'height':'100%'}:{'height':'unset'}">
           <!-- <div [ngStyle]="colorArr.length === 0? {'height':'100%'}:{'height':'unset'}" > -->
             <ng-container *ngFor="let item of colorArr">
               <div class="svg-container" cdkDrag>
