@@ -22,15 +22,17 @@
           </ng-container>
         </div>
         <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="colorArr"
-             (cdkDropListDropped)="drop($event)" *ngIf="colorArr" class="row_dropper">
-          <ng-container *ngFor="let item of colorArr">
-            <div class="svg-container" cdkDrag>
-              <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 508 508">
-                <circle cx="254" cy="254" r="254" style="fill:#ffd15c" />
-                <circle cx="254" cy="254" r="193.2" style="fill:#f8b64c" />
-              </svg>
-            </div>
-          </ng-container>
+             (cdkDropListDropped)="drop($event)" class="row_dropper" >
+          <!-- <div [ngStyle]="colorArr.length === 0? {'height':'100%'}:{'height':'unset'}" > -->
+            <ng-container *ngFor="let item of colorArr">
+              <div class="svg-container" cdkDrag>
+                <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 508 508">
+                  <circle cx="254" cy="254" r="254" style="fill:#ffd15c" />
+                  <circle cx="254" cy="254" r="193.2" style="fill:#f8b64c" />
+                </svg>
+              </div>
+            </ng-container>
+          <!-- </div > -->
         </div>
         <div style="position: absolute; bottom: 0px;">coins: {{colorArr.length}}</div>
       </div>
